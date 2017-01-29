@@ -8409,17 +8409,6 @@ var _canadaduane$elm_hccb$Hccb_Bits$bitsPerByte = 8;
 var _canadaduane$elm_hccb$Hccb_Bits$Four = {ctor: 'Four'};
 var _canadaduane$elm_hccb$Hccb_Bits$Two = {ctor: 'Two'};
 
-var _canadaduane$elm_hccb$Hccb_Specification$triangleRowDim = function (spec) {
-	var height = _canadaduane$elm_hccb$Hccb_Dim$heightOf(spec.triangleDim) + spec.whiteStripHeight;
-	var width = (_canadaduane$elm_hccb$Hccb_Dim$widthOf(spec.triangleDim) * _elm_lang$core$Basics$toFloat(spec.size.cols)) / 2;
-	return A2(_canadaduane$elm_hccb$Hccb_Dim$Dim, width, height);
-};
-var _canadaduane$elm_hccb$Hccb_Specification$barcodeDim = function (spec) {
-	var rowDim = _canadaduane$elm_hccb$Hccb_Specification$triangleRowDim(spec);
-	var width = ((((((0.0 + spec.whiteFramePad.left) + spec.blackBackgroundPad.left) + spec.rowInset) + _canadaduane$elm_hccb$Hccb_Dim$widthOf(rowDim)) + spec.rowInset) + spec.blackBackgroundPad.right) + spec.whiteFramePad.right;
-	var height = (((0.0 + spec.whiteFramePad.top) + spec.blackBackgroundPad.top) + (_canadaduane$elm_hccb$Hccb_Dim$heightOf(rowDim) * (_elm_lang$core$Basics$toFloat(spec.size.rows) + 1))) + spec.whiteFramePad.bottom;
-	return A2(_canadaduane$elm_hccb$Hccb_Dim$Dim, width, height);
-};
 var _canadaduane$elm_hccb$Hccb_Specification$Size = F2(
 	function (a, b) {
 		return {rows: a, cols: b};
@@ -8428,6 +8417,18 @@ var _canadaduane$elm_hccb$Hccb_Specification$Specification = F7(
 	function (a, b, c, d, e, f, g) {
 		return {bits: a, size: b, whiteFramePad: c, blackBackgroundPad: d, whiteStripHeight: e, rowInset: f, triangleDim: g};
 	});
+
+var _canadaduane$elm_hccb$Hccb_SpecDim$triangleRowDim = function (spec) {
+	var height = _canadaduane$elm_hccb$Hccb_Dim$heightOf(spec.triangleDim) + spec.whiteStripHeight;
+	var width = (_canadaduane$elm_hccb$Hccb_Dim$widthOf(spec.triangleDim) * _elm_lang$core$Basics$toFloat(spec.size.cols)) / 2;
+	return A2(_canadaduane$elm_hccb$Hccb_Dim$Dim, width, height);
+};
+var _canadaduane$elm_hccb$Hccb_SpecDim$barcodeDim = function (spec) {
+	var rowDim = _canadaduane$elm_hccb$Hccb_SpecDim$triangleRowDim(spec);
+	var width = ((((((0.0 + spec.whiteFramePad.left) + spec.blackBackgroundPad.left) + spec.rowInset) + _canadaduane$elm_hccb$Hccb_Dim$widthOf(rowDim)) + spec.rowInset) + spec.blackBackgroundPad.right) + spec.whiteFramePad.right;
+	var height = (((0.0 + spec.whiteFramePad.top) + spec.blackBackgroundPad.top) + (_canadaduane$elm_hccb$Hccb_Dim$heightOf(rowDim) * (_elm_lang$core$Basics$toFloat(spec.size.rows) + 1))) + spec.whiteFramePad.bottom;
+	return A2(_canadaduane$elm_hccb$Hccb_Dim$Dim, width, height);
+};
 
 var _elm_lang$core$Native_Bitwise = function() {
 
@@ -8651,7 +8652,7 @@ var _canadaduane$elm_hccb$Hccb_Barcode$drawFrame = F2(
 		};
 	});
 var _canadaduane$elm_hccb$Hccb_Barcode$getRowSpec = function (spec) {
-	var rowDim = _canadaduane$elm_hccb$Hccb_Specification$triangleRowDim(spec);
+	var rowDim = _canadaduane$elm_hccb$Hccb_SpecDim$triangleRowDim(spec);
 	return {
 		width: _canadaduane$elm_hccb$Hccb_Dim$widthOf(rowDim),
 		inset: spec.rowInset,
@@ -8747,7 +8748,7 @@ var _canadaduane$elm_hccb$Hccb$barcode = F4(
 							_canadaduane$elm_hccb$Hccb_Rect$pointOf(innerPaddedRect),
 							spec.size))));
 		};
-		var dim = _canadaduane$elm_hccb$Hccb_Specification$barcodeDim(spec);
+		var dim = _canadaduane$elm_hccb$Hccb_SpecDim$barcodeDim(spec);
 		return A4(
 			_canadaduane$elm_hccb$Hccb_Graphic$graphicResize,
 			dim,

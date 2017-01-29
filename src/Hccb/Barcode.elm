@@ -12,7 +12,8 @@ import Hccb.Pad exposing (Pad, equalPad, zeroPad)
 import Hccb.Point exposing (Point(..))
 import Hccb.Rect exposing (Rect(..), pointOf)
 import Hccb.Triangle exposing (TriangleDir(..), drawTriangle)
-import Hccb.Specification exposing (Specification, Size, triangleRowDim, barcodeDim)
+import Hccb.Specification exposing (Specification, Size)
+import Hccb.SpecDim exposing (triangleRowDim, barcodeDim)
 import Hccb.ColorData exposing (ColorData)
 
 
