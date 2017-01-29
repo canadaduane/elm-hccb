@@ -1,0 +1,41 @@
+# High Capacity Color Barcode (HCCB)
+
+This is an Elm project that displays HCCB (High Capacity Color Barcode) data using an SVG element (i.e. on an HTML page).
+
+<div align="center"><img src="docs/hccb-sample.png" width="396" height="420"></div>
+
+## Why?
+
+For the project I'm pursuing, I needed a colorful barcode format that can pack a lot of data. In addition, I hoped to find a barcode that kids would find interesting. When I showed my daughter an HCCB she said "Oh, that one's pretty", so I decided the HCCB fit the bill.
+
+In a future project, I intend to "stream" data through an on-screen HCCB--bypassing tricky usb-serial drivers and other methods of programming an Arduino in the classroom.
+
+## Status
+
+- Data is properly displayed as an HCCB [YES]
+- Data is transformed using error-correcting codes [NO]
+- Data is read from source as binary [NO]
+
+## About Barcodes
+
+I discovered HCCB through [Specifications For Popular 2D Bar Codes](http://www.adams1.com/stack.html), among other 2D barcodes. Skimming through the various formats is quite informative.
+
+## Getting started
+
+You need to have [Elm](http://elm-lang.org/) 0.18 installed on your machine.
+
+Compile this project with:
+
+    elm make src/Main.elm
+
+Then view it:
+
+    elm reactor
+
+## Credit
+
+Authored by Duane Johnson
+
+## License
+
+MIT Licensed. Feel free to do what you want with this code; however, HCCB is patented by Microsoft and I have no idea if they want you to use HCCB or not.
