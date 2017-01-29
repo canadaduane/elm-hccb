@@ -4,6 +4,15 @@ module Hccb
         , standardSpec
         )
 
+{-| A High Capacity Color Barcode (HCCB) generator
+
+# Usage
+@docs barcode
+
+# Specification
+@docs standardSpec
+-}
+
 import Html exposing (Html)
 import Svg exposing (Svg)
 
@@ -25,6 +34,10 @@ type alias Data =
     List Int
 
 
+{-| The "standard" specification for an HCCB barcode. Note that you can quite
+    easily change the size--it should be readable. If you change the padding,
+    strip height, insets, or dimensions, however, it may not be readable.
+-}
 standardSpec : Specification
 standardSpec =
     { bits = Four
@@ -41,6 +54,9 @@ standardSpec =
 
 
 {-| Generate an HCCB (High Capacity Color Barcode) SVG in HTML
+
+# Example use
+`barcode standardSpec 100 100 [1, 2, 3, 4]`
 -}
 barcode : Specification -> Float -> Float -> Data -> Html msg
 barcode spec w_ h_ data =

@@ -1,5 +1,13 @@
 module Hccb.Specification exposing (..)
 
+{-| Specification for High Capacity Color Barcode (HCCB)
+
+# Usage
+Usually, you just need the `standardSpec` Specification exposed by the main
+Hccb module. However, if you need to customize the size or other factors of
+an HCCB barcode, you can do so.
+-}
+
 import Hccb.Pad exposing (Pad, equalPad, zeroPad)
 import Hccb.Dim exposing (Dim(..), widthOf, heightOf)
 import Hccb.Bits exposing (Bits(..))
