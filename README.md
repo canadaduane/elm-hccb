@@ -1,6 +1,6 @@
 # High Capacity Color Barcode (HCCB)
 
-This is an Elm project that displays HCCB (High Capacity Color Barcode) data using an SVG element (i.e. on an HTML page).
+This is an Elm project that displays data as an HCCB (High Capacity Color Barcode). It dynamically constructs an SVG element based on the data to display (i.e. on an HTML page).
 
 <div align="center"><img src="docs/hccb-sample.png" width="396" height="420"></div>
 
