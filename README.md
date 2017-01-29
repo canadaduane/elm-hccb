@@ -2,7 +2,7 @@
 
 This is an Elm library that displays data as an HCCB (High Capacity Color Barcode). It dynamically constructs an SVG element based on the data to display (i.e. on an HTML page).
 
-<div align="center"><img src="https://github.com/canadaduane/elm-hccb/raw/master/docs/hccb-sample.png" width="396" height="420"></div>
+<div align="center"><img src="https://github.com/canadaduane/elm-hccb/raw/master/docs/hccb-sample.png" width="198" height="210"></div>
 
 ## Why?
 
