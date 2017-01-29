@@ -18,15 +18,15 @@ In a future project, I intend to "stream" data through an on-screen HCCB--bypass
 
 ## About Barcodes
 
-I discovered HCCB through [Specifications For Popular 2D Bar Codes](http://www.adams1.com/stack.html), among other 2D barcodes. Skimming through the various formats is quite informative.
+I discovered HCCB, among other formats, through [Specifications For Popular 2D Bar Codes](http://www.adams1.com/stack.html). Skimming through the various formats is quite informative.
 
 ## Getting started
 
 You need to have [Elm](http://elm-lang.org/) 0.18 installed on your machine.
 
-Compile this project with:
+Compile the samples in this project with:
 
-    elm make src/Main.elm
+    cd examples; make
 
 Then view it:
 
