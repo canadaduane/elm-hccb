@@ -1,5 +1,5 @@
 {
-    "version": "0.1.0",
+    "version": "1.0.0",
     "summary": "High Capacity Color Barcode (HCCB) displayed in SVG format",
     "repository": "https://github.com/canadaduane/elm-hccb.git",
     "license": "BSD3",
