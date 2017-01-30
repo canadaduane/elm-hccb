@@ -46,7 +46,7 @@ totalBytes =
      )
         - 16
     )
-        * 4
+        * 3
         // 8
 
 
@@ -63,7 +63,13 @@ view model =
                 ]
             ]
             [ barcode standardSpec 250 250 sampleData ]
-        , h2 [] [ text "This is a 250 x 250 pixel 8-color (4-bit) HCCB" ]
+        , h2 [] [ text "This is a 250 x 250 pixel 8-color (3-bit) HCCB" ]
+        , h2 []
+            [ text <|
+                "It stores "
+                    ++ (toString totalBytes)
+                    ++ " bytes of non-error-corrected data."
+            ]
         , h2 []
             [ text <|
                 "It has "
@@ -72,8 +78,6 @@ view model =
                     ++ (toString standardSpec.size.rows)
                     ++ " rows."
             ]
-        , h2 []
-            [ text <| "It stores " ++ (toString totalBytes) ++ " bytes of non-error-corrected data." ]
         ]
 
 

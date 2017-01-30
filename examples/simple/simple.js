@@ -8406,8 +8406,8 @@ var _canadaduane$elm_hccb$Hccb_Triangle$TriangleDown = {ctor: 'TriangleDown'};
 var _canadaduane$elm_hccb$Hccb_Triangle$TriangleUp = {ctor: 'TriangleUp'};
 
 var _canadaduane$elm_hccb$Hccb_Bits$bitsPerByte = 8;
-var _canadaduane$elm_hccb$Hccb_Bits$Four = {ctor: 'Four'};
-var _canadaduane$elm_hccb$Hccb_Bits$Two = {ctor: 'Two'};
+var _canadaduane$elm_hccb$Hccb_Bits$ThreeBits = {ctor: 'ThreeBits'};
+var _canadaduane$elm_hccb$Hccb_Bits$TwoBits = {ctor: 'TwoBits'};
 
 var _canadaduane$elm_hccb$Hccb_Specification$Size = F2(
 	function (a, b) {
@@ -8508,10 +8508,10 @@ var _canadaduane$elm_hccb$Hccb_ColorData$dataToColors = F2(
 			function (atIndex, value) {
 				var _p0 = function () {
 					var _p1 = bits;
-					if (_p1.ctor === 'Two') {
+					if (_p1.ctor === 'TwoBits') {
 						return {ctor: '_Tuple2', _0: atIndex * 2, _1: 3};
 					} else {
-						return {ctor: '_Tuple2', _0: atIndex * 4, _1: 7};
+						return {ctor: '_Tuple2', _0: atIndex * 3, _1: 7};
 					}
 				}();
 				var shift = _p0._0;
@@ -8521,10 +8521,10 @@ var _canadaduane$elm_hccb$Hccb_ColorData$dataToColors = F2(
 			});
 		var _p2 = function () {
 			var _p3 = bits;
-			if (_p3.ctor === 'Two') {
+			if (_p3.ctor === 'TwoBits') {
 				return {ctor: '_Tuple2', _0: 2, _1: _canadaduane$elm_hccb$Hccb_ColorData$fourColorMap};
 			} else {
-				return {ctor: '_Tuple2', _0: 4, _1: _canadaduane$elm_hccb$Hccb_ColorData$eightColorMap};
+				return {ctor: '_Tuple2', _0: 3, _1: _canadaduane$elm_hccb$Hccb_ColorData$eightColorMap};
 			}
 		}();
 		var nbits = _p2._0;
@@ -8568,7 +8568,7 @@ var _canadaduane$elm_hccb$Hccb_ColorData$colorsPrefix = function (bits) {
 			colors);
 	};
 	var _p4 = bits;
-	if (_p4.ctor === 'Two') {
+	if (_p4.ctor === 'TwoBits') {
 		return doubleColors(_canadaduane$elm_hccb$Hccb_ColorData$fourColorMap);
 	} else {
 		return doubleColors(_canadaduane$elm_hccb$Hccb_ColorData$eightColorMap);
@@ -8725,7 +8725,7 @@ var _canadaduane$elm_hccb$Hccb$barcode = F4(
 			var coloredData = A2(
 				_elm_lang$core$Basics_ops['++'],
 				_canadaduane$elm_hccb$Hccb_ColorData$colorsPrefix(spec.bits),
-				A2(_canadaduane$elm_hccb$Hccb_ColorData$dataToColors, _canadaduane$elm_hccb$Hccb_Bits$Four, data));
+				A2(_canadaduane$elm_hccb$Hccb_ColorData$dataToColors, _canadaduane$elm_hccb$Hccb_Bits$ThreeBits, data));
 			var rowSpec = _canadaduane$elm_hccb$Hccb_Barcode$getRowSpec(spec);
 			var innerRect = A2(minusPad, spec.whiteFramePad, outerRect);
 			var innerPaddedRect = A2(minusPad, spec.blackBackgroundPad, innerRect);
@@ -8757,7 +8757,7 @@ var _canadaduane$elm_hccb$Hccb$barcode = F4(
 			generate);
 	});
 var _canadaduane$elm_hccb$Hccb$standardSpec = {
-	bits: _canadaduane$elm_hccb$Hccb_Bits$Four,
+	bits: _canadaduane$elm_hccb$Hccb_Bits$ThreeBits,
 	size: {rows: 12, cols: 24},
 	whiteFramePad: _canadaduane$elm_hccb$Hccb_Pad$equalPad(20.87),
 	blackBackgroundPad: _canadaduane$elm_hccb$Hccb_Pad$equalPad(8.94),
@@ -9117,7 +9117,7 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
 var _canadaduane$elm_hccb$Simple$sampleData = A2(_elm_lang$core$List$range, 1, 255);
-var _canadaduane$elm_hccb$Simple$totalBytes = ((((_canadaduane$elm_hccb$Hccb$standardSpec.size.cols * _canadaduane$elm_hccb$Hccb$standardSpec.size.rows) - 16) * 4) / 8) | 0;
+var _canadaduane$elm_hccb$Simple$totalBytes = ((((_canadaduane$elm_hccb$Hccb$standardSpec.size.cols * _canadaduane$elm_hccb$Hccb$standardSpec.size.rows) - 16) * 3) / 8) | 0;
 var _canadaduane$elm_hccb$Simple$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -9185,7 +9185,7 @@ var _canadaduane$elm_hccb$Simple$view = function (model) {
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('This is a 250 x 250 pixel 8-color (4-bit) HCCB'),
+								_0: _elm_lang$html$Html$text('This is a 250 x 250 pixel 8-color (3-bit) HCCB'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
@@ -9198,17 +9198,11 @@ var _canadaduane$elm_hccb$Simple$view = function (model) {
 									_0: _elm_lang$html$Html$text(
 										A2(
 											_elm_lang$core$Basics_ops['++'],
-											'It has ',
+											'It stores ',
 											A2(
 												_elm_lang$core$Basics_ops['++'],
-												_elm_lang$core$Basics$toString(_canadaduane$elm_hccb$Hccb$standardSpec.size.cols),
-												A2(
-													_elm_lang$core$Basics_ops['++'],
-													' columns and ',
-													A2(
-														_elm_lang$core$Basics_ops['++'],
-														_elm_lang$core$Basics$toString(_canadaduane$elm_hccb$Hccb$standardSpec.size.rows),
-														' rows.'))))),
+												_elm_lang$core$Basics$toString(_canadaduane$elm_hccb$Simple$totalBytes),
+												' bytes of non-error-corrected data.'))),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -9221,11 +9215,17 @@ var _canadaduane$elm_hccb$Simple$view = function (model) {
 										_0: _elm_lang$html$Html$text(
 											A2(
 												_elm_lang$core$Basics_ops['++'],
-												'It stores ',
+												'It has ',
 												A2(
 													_elm_lang$core$Basics_ops['++'],
-													_elm_lang$core$Basics$toString(_canadaduane$elm_hccb$Simple$totalBytes),
-													' bytes of non-error-corrected data.'))),
+													_elm_lang$core$Basics$toString(_canadaduane$elm_hccb$Hccb$standardSpec.size.cols),
+													A2(
+														_elm_lang$core$Basics_ops['++'],
+														' columns and ',
+														A2(
+															_elm_lang$core$Basics_ops['++'],
+															_elm_lang$core$Basics$toString(_canadaduane$elm_hccb$Hccb$standardSpec.size.rows),
+															' rows.'))))),
 										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}

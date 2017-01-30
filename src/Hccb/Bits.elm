@@ -2,8 +2,8 @@ module Hccb.Bits exposing (Bits(..), bitsPerByte)
 
 
 type Bits
-    = Two
-    | Four
+    = TwoBits
+    | ThreeBits
 
 
 bitsPerByte : Int

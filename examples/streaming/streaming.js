@@ -8406,8 +8406,8 @@ var _canadaduane$elm_hccb$Hccb_Triangle$TriangleDown = {ctor: 'TriangleDown'};
 var _canadaduane$elm_hccb$Hccb_Triangle$TriangleUp = {ctor: 'TriangleUp'};
 
 var _canadaduane$elm_hccb$Hccb_Bits$bitsPerByte = 8;
-var _canadaduane$elm_hccb$Hccb_Bits$Four = {ctor: 'Four'};
-var _canadaduane$elm_hccb$Hccb_Bits$Two = {ctor: 'Two'};
+var _canadaduane$elm_hccb$Hccb_Bits$ThreeBits = {ctor: 'ThreeBits'};
+var _canadaduane$elm_hccb$Hccb_Bits$TwoBits = {ctor: 'TwoBits'};
 
 var _canadaduane$elm_hccb$Hccb_Specification$Size = F2(
 	function (a, b) {
@@ -8508,10 +8508,10 @@ var _canadaduane$elm_hccb$Hccb_ColorData$dataToColors = F2(
 			function (atIndex, value) {
 				var _p0 = function () {
 					var _p1 = bits;
-					if (_p1.ctor === 'Two') {
+					if (_p1.ctor === 'TwoBits') {
 						return {ctor: '_Tuple2', _0: atIndex * 2, _1: 3};
 					} else {
-						return {ctor: '_Tuple2', _0: atIndex * 4, _1: 7};
+						return {ctor: '_Tuple2', _0: atIndex * 3, _1: 7};
 					}
 				}();
 				var shift = _p0._0;
@@ -8521,10 +8521,10 @@ var _canadaduane$elm_hccb$Hccb_ColorData$dataToColors = F2(
 			});
 		var _p2 = function () {
 			var _p3 = bits;
-			if (_p3.ctor === 'Two') {
+			if (_p3.ctor === 'TwoBits') {
 				return {ctor: '_Tuple2', _0: 2, _1: _canadaduane$elm_hccb$Hccb_ColorData$fourColorMap};
 			} else {
-				return {ctor: '_Tuple2', _0: 4, _1: _canadaduane$elm_hccb$Hccb_ColorData$eightColorMap};
+				return {ctor: '_Tuple2', _0: 3, _1: _canadaduane$elm_hccb$Hccb_ColorData$eightColorMap};
 			}
 		}();
 		var nbits = _p2._0;
@@ -8568,7 +8568,7 @@ var _canadaduane$elm_hccb$Hccb_ColorData$colorsPrefix = function (bits) {
 			colors);
 	};
 	var _p4 = bits;
-	if (_p4.ctor === 'Two') {
+	if (_p4.ctor === 'TwoBits') {
 		return doubleColors(_canadaduane$elm_hccb$Hccb_ColorData$fourColorMap);
 	} else {
 		return doubleColors(_canadaduane$elm_hccb$Hccb_ColorData$eightColorMap);
@@ -8725,7 +8725,7 @@ var _canadaduane$elm_hccb$Hccb$barcode = F4(
 			var coloredData = A2(
 				_elm_lang$core$Basics_ops['++'],
 				_canadaduane$elm_hccb$Hccb_ColorData$colorsPrefix(spec.bits),
-				A2(_canadaduane$elm_hccb$Hccb_ColorData$dataToColors, _canadaduane$elm_hccb$Hccb_Bits$Four, data));
+				A2(_canadaduane$elm_hccb$Hccb_ColorData$dataToColors, _canadaduane$elm_hccb$Hccb_Bits$ThreeBits, data));
 			var rowSpec = _canadaduane$elm_hccb$Hccb_Barcode$getRowSpec(spec);
 			var innerRect = A2(minusPad, spec.whiteFramePad, outerRect);
 			var innerPaddedRect = A2(minusPad, spec.blackBackgroundPad, innerRect);
@@ -8757,7 +8757,7 @@ var _canadaduane$elm_hccb$Hccb$barcode = F4(
 			generate);
 	});
 var _canadaduane$elm_hccb$Hccb$standardSpec = {
-	bits: _canadaduane$elm_hccb$Hccb_Bits$Four,
+	bits: _canadaduane$elm_hccb$Hccb_Bits$ThreeBits,
 	size: {rows: 12, cols: 24},
 	whiteFramePad: _canadaduane$elm_hccb$Hccb_Pad$equalPad(20.87),
 	blackBackgroundPad: _canadaduane$elm_hccb$Hccb_Pad$equalPad(8.94),
@@ -10140,15 +10140,15 @@ var _canadaduane$elm_hccb$Streaming$loadStatus = function (status) {
 	var _p5 = status;
 	switch (_p5.ctor) {
 		case 'LoadInit':
-			return 'starting';
+			return 'Starting...';
 		case 'Loading':
-			return 'loading';
+			return 'Loading...';
 		case 'LoadSuccess':
-			return 'done';
+			return 'Data available to transmit.';
 		default:
 			return A2(
 				_elm_lang$core$Basics_ops['++'],
-				'error: ',
+				'Error: ',
 				A2(_elm_lang$core$Basics_ops['++'], _p5._0, ' (try loading this with \'elm reactor\' to allow AJAX requests)'));
 	}
 };
@@ -10166,7 +10166,7 @@ var _canadaduane$elm_hccb$Streaming$buttonStyles = {
 	}
 };
 var _canadaduane$elm_hccb$Streaming$getData = _elm_lang$http$Http$getString('arduino_blink.hex');
-var _canadaduane$elm_hccb$Streaming$barcodeSize = 200;
+var _canadaduane$elm_hccb$Streaming$barcodeSize = 250;
 var _canadaduane$elm_hccb$Streaming$millisPerPage = 400;
 var _canadaduane$elm_hccb$Streaming$Model = F4(
 	function (a, b, c, d) {

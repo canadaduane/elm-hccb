@@ -41,7 +41,7 @@ type alias Data =
 -}
 standardSpec : Specification
 standardSpec =
-    { bits = Four
+    { bits = ThreeBits
     , size =
         { rows = 12
         , cols = 24
@@ -84,7 +84,7 @@ barcode spec w_ h_ data =
                     getRowSpec spec
 
                 coloredData =
-                    (colorsPrefix spec.bits) ++ (dataToColors Four data)
+                    (colorsPrefix spec.bits) ++ (dataToColors ThreeBits data)
             in
                 []
                     ++ (drawFrame outerRect innerRect)

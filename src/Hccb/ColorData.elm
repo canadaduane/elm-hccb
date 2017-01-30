@@ -55,21 +55,21 @@ dataToColors bits ints =
     let
         ( nbits, colorMap ) =
             case bits of
-                Two ->
+                TwoBits ->
                     ( 2, fourColorMap )
 
-                Four ->
-                    ( 4, eightColorMap )
+                ThreeBits ->
+                    ( 3, eightColorMap )
 
         takeBits atIndex value =
             let
                 ( shift, mask ) =
                     case bits of
-                        Two ->
+                        TwoBits ->
                             ( atIndex * 2, 3 )
 
-                        Four ->
-                            ( atIndex * 4, 7 )
+                        ThreeBits ->
+                            ( atIndex * 3, 7 )
 
                 shiftedMask =
                     shiftLeftBy shift mask
@@ -100,8 +100,8 @@ colorsPrefix bits =
             List.concatMap (\c -> [ c, c ]) colors
     in
         case bits of
-            Two ->
+            TwoBits ->
                 doubleColors fourColorMap
 
-            Four ->
+            ThreeBits ->
                 doubleColors eightColorMap

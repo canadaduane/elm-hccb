@@ -22,7 +22,7 @@ millisPerPage =
 
 barcodeSize : Float
 barcodeSize =
-    200
+    250
 
 
 main : Program Never Model Msg
@@ -198,16 +198,16 @@ loadStatus : LoadStatus -> String
 loadStatus status =
     case status of
         LoadInit ->
-            "starting"
+            "Starting..."
 
         Loading ->
-            "loading"
+            "Loading..."
 
         LoadSuccess ->
-            "done"
+            "Data available to transmit."
 
         LoadFailure str ->
-            "error: " ++ str ++ " (try loading this with 'elm reactor' to allow AJAX requests)"
+            "Error: " ++ str ++ " (try loading this with 'elm reactor' to allow AJAX requests)"
 
 
 progressBar : ( Int, Int ) -> Html Msg
