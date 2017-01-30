@@ -10266,95 +10266,63 @@ var _canadaduane$elm_hccb$Streaming$view = function (model) {
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$div,
+					_elm_lang$html$Html$h2,
+					{ctor: '[]'},
 					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(
-							{
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#eee'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'padding', _1: '1em'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'margin-bottom', _1: '1em'},
-										_1: {ctor: '[]'}
-									}
-								}
-							}),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: A4(
-							_canadaduane$elm_hccb$Hccb$barcode,
-							_canadaduane$elm_hccb$Hccb$standardSpec,
-							_canadaduane$elm_hccb$Streaming$barcodeSize,
-							_canadaduane$elm_hccb$Streaming$barcodeSize,
-							_canadaduane$elm_hccb$Streaming$currentPageData(model)),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: _canadaduane$elm_hccb$Streaming$progressBar(
-						{
-							ctor: '_Tuple2',
-							_0: model.page,
-							_1: _canadaduane$elm_hccb$Streaming$pageTotal(model)
-						}),
-					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$div,
+							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$style(
-									{
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'margin', _1: '1em 0'},
-										_1: {ctor: '[]'}
-									}),
+								_0: _elm_lang$html$Html_Attributes$href('https://github.com/canadaduane/elm-hccb'),
 								_1: {ctor: '[]'}
 							},
 							{
 								ctor: '::',
-								_0: model.transmitting ? _elm_lang$html$Html$text('Transmitting') : A2(
-									_elm_lang$html$Html$button,
-									{
+								_0: _elm_lang$html$Html$text('(Why Streaming?)'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$style(
+								{
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#eee'},
+									_1: {
 										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$style(_canadaduane$elm_hccb$Streaming$buttonStyles),
+										_0: {ctor: '_Tuple2', _0: 'padding', _1: '1em'},
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onClick(_canadaduane$elm_hccb$Streaming$ToggleTransmitting),
+											_0: {ctor: '_Tuple2', _0: 'margin-bottom', _1: '1em'},
 											_1: {ctor: '[]'}
 										}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Transmit'),
-										_1: {ctor: '[]'}
-									}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$button,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$style(_canadaduane$elm_hccb$Streaming$buttonStyles),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_canadaduane$elm_hccb$Streaming$StopTransmitting),
-												_1: {ctor: '[]'}
-											}
-										},
-										{
-											ctor: '::',
-											_0: model.transmitting ? _elm_lang$html$Html$text('Stop') : _elm_lang$html$Html$text('Reset'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}
+									}
+								}),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A4(
+								_canadaduane$elm_hccb$Hccb$barcode,
+								_canadaduane$elm_hccb$Hccb$standardSpec,
+								_canadaduane$elm_hccb$Streaming$barcodeSize,
+								_canadaduane$elm_hccb$Streaming$barcodeSize,
+								_canadaduane$elm_hccb$Streaming$currentPageData(model)),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _canadaduane$elm_hccb$Streaming$progressBar(
+							{
+								ctor: '_Tuple2',
+								_0: model.page,
+								_1: _canadaduane$elm_hccb$Streaming$pageTotal(model)
 							}),
 						_1: {
 							ctor: '::',
@@ -10365,22 +10333,76 @@ var _canadaduane$elm_hccb$Streaming$view = function (model) {
 									_0: _elm_lang$html$Html_Attributes$style(
 										{
 											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'border', _1: '2px solid #dddddd'},
-											_1: {
-												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '4px'},
-												_1: {ctor: '[]'}
-											}
+											_0: {ctor: '_Tuple2', _0: 'margin', _1: '1em 0'},
+											_1: {ctor: '[]'}
 										}),
 									_1: {ctor: '[]'}
 								},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text(
-										_canadaduane$elm_hccb$Streaming$loadStatus(model.loading)),
-									_1: {ctor: '[]'}
+									_0: model.transmitting ? _elm_lang$html$Html$text('Transmitting') : A2(
+										_elm_lang$html$Html$button,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$style(_canadaduane$elm_hccb$Streaming$buttonStyles),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onClick(_canadaduane$elm_hccb$Streaming$ToggleTransmitting),
+												_1: {ctor: '[]'}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Transmit'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$button,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$style(_canadaduane$elm_hccb$Streaming$buttonStyles),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Events$onClick(_canadaduane$elm_hccb$Streaming$StopTransmitting),
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: model.transmitting ? _elm_lang$html$Html$text('Stop') : _elm_lang$html$Html$text('Reset'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
 								}),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$div,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$style(
+											{
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'border', _1: '2px solid #dddddd'},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '4px'},
+													_1: {ctor: '[]'}
+												}
+											}),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(
+											_canadaduane$elm_hccb$Streaming$loadStatus(model.loading)),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}

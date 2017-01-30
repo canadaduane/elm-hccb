@@ -1,7 +1,7 @@
 module Streaming exposing (..)
 
-import Html exposing (Html, h1, div, span, button, text)
-import Html.Attributes exposing (style)
+import Html exposing (Html, h1, h2, div, a, span, button, text)
+import Html.Attributes exposing (style, href)
 import Html.Events exposing (onClick)
 import Http exposing (Request, Error, send, getString)
 import Time exposing (Time, millisecond)
@@ -160,6 +160,7 @@ view : Model -> Html Msg
 view model =
     div [ style [ ( "text-align", "center" ) ] ]
         [ h1 [] [ text "High Capacity Color Barcode" ]
+        , h2 [] [ a [ href "https://github.com/canadaduane/elm-hccb" ] [ text "(Why Streaming?)" ] ]
         , div
             [ style
                 [ ( "background-color", "#eee" )
