@@ -10,11 +10,14 @@ For the project I'm pursuing, I needed a colorful barcode format that can pack a
 
 In a future project, I intend to "stream" data through an on-screen HCCB--bypassing tricky usb-serial drivers and other methods of programming an Arduino in the classroom.
 
+## Examples
+
+See [Simple](https://canadaduane.github.io/elm-hccb/examples/simple/index.html) and [Streaming](https://canadaduane.github.io/elm-hccb/examples/streaming/index.html) examples online.
+
 ## Status
 
 - Data is properly displayed as an HCCB [YES]
 - Data is transformed using error-correcting codes [NO]
-- Data is read from source as binary [NO]
 
 ## About Barcodes
 
