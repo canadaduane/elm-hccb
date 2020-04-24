@@ -1,4 +1,4 @@
-module Simple exposing (..)
+module Simple.Simple exposing (..)
 
 import Html exposing (Html, h1, h2, div, text)
 import Html.Attributes exposing (style)
