@@ -29,13 +29,13 @@ Install [Elm](https://github.com/elm/compiler/blob/master/installers/linux/READM
 
 Compile Hccb
 
-    elm make elm make src/Hccb.elm
+    elm make src/Hccb.elm
 
 Compile an example
 
     elm make examples/Simple/Simple.elm
 
-Then view the example in <http://localhost:8000/examples/Simple/index.html> with:
+Then view the example in http://localhost:8000/examples/Simple/index.html with:
 
     elm reactor
 
