@@ -1,8 +1,8 @@
 module Simple.Simple exposing (..)
 
+import Browser exposing (sandbox)
 import Html exposing (Html, h1, h2, div, text)
 import Html.Attributes exposing (style)
-
 
 -- Project Imports
 
@@ -17,13 +17,13 @@ type Msg
     = NoOp
 
 
-main : Program Never Model Msg
+main : Program () ( Model, Cmd Msg ) Msg
 main =
-    Html.program
+    Browser.sandbox
         { init = init
         , view = view
         , update = update
-        , subscriptions = always Sub.none
+--         , subscriptions = always Sub.none
         }
 
 
@@ -32,11 +32,12 @@ init =
     ( (), Cmd.none )
 
 
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
+-- update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> ( Model, Cmd Msg ) -> ( Model, Cmd Msg )
+update msg arg2 =
     case msg of
         NoOp ->
-            ( model, Cmd.none )
+            ( Tuple.first arg2 , Cmd.none )
 
 
 totalBytes : Int
@@ -50,32 +51,26 @@ totalBytes =
         // 8
 
 
-view : Model -> Html Msg
+view : ( Model, Cmd Msg ) -> Html Msg
 view model =
-    div [ style [ ( "text-align", "center" ) ] ]
+    div []
         [ h1 [] [ text "High Capacity Color Barcode" ]
         , h2 [] [ text "Simple Example" ]
-        , div
-            [ style
-                [ ( "background-color", "#eee" )
-                , ( "padding", "1em" )
-                , ( "margin-bottom", "1em" )
-                ]
-            ]
+        , div []
             [ barcode standardSpec 250 250 sampleData ]
         , h2 [] [ text "This is a 250 x 250 pixel 8-color (3-bit) HCCB" ]
         , h2 []
             [ text <|
                 "It stores "
-                    ++ (toString totalBytes)
+                    ++ (Debug.toString totalBytes)
                     ++ " bytes of non-error-corrected data."
             ]
         , h2 []
             [ text <|
                 "It has "
-                    ++ (toString standardSpec.size.cols)
+                    ++ (Debug.toString standardSpec.size.cols)
                     ++ " columns and "
-                    ++ (toString standardSpec.size.rows)
+                    ++ (Debug.toString standardSpec.size.rows)
                     ++ " rows."
             ]
         ]

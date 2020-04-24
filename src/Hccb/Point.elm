@@ -1,4 +1,4 @@
-module Hccb.Point exposing (Point(Point), pointToString)
+module Hccb.Point exposing (Point(..), pointToString)
 
 
 type Point
@@ -7,4 +7,4 @@ type Point
 
 pointToString : Point -> String
 pointToString (Point x_ y_) =
-    (toString x_) ++ " " ++ (toString y_)
+    (Debug.toString x_) ++ " " ++ (Debug.toString y_)

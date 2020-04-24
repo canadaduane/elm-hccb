@@ -7,9 +7,9 @@ import Svg.Attributes exposing (width, height, viewBox)
 
 -- Project Imports
 
-import Hccb.Dim exposing (Dim(Dim))
-import Hccb.Point exposing (Point(Point))
-import Hccb.Rect exposing (Rect(Rect))
+import Hccb.Dim exposing (Dim(..))
+import Hccb.Point exposing (Point(..))
+import Hccb.Rect exposing (Rect(..))
 import Hccb.Pad exposing (Pad)
 
 
@@ -26,11 +26,11 @@ graphicResize (Dim w h) (Dim resizeW resizeH) pad generator =
             Rect pt innerDim
 
         boundingBoxStr =
-            "0 0 " ++ (toString w) ++ " " ++ (toString h)
+            "0 0 " ++ (Debug.toString w) ++ " " ++ (Debug.toString h)
     in
         svg
-            [ width (toString resizeW)
-            , height (toString resizeH)
+            [ width (Debug.toString resizeW)
+            , height (Debug.toString resizeH)
             , viewBox boundingBoxStr
             ]
             (generator inside)
