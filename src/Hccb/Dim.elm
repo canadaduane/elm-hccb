@@ -1,4 +1,4 @@
-module Hccb.Dim exposing (Dim(Dim), widthOf, heightOf, square, map)
+module Hccb.Dim exposing (Dim(..), widthOf, heightOf, square, map)
 
 
 type Dim

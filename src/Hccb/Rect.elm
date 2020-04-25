@@ -1,7 +1,7 @@
-module Hccb.Rect exposing (Rect(Rect), rect, fromRect, pointOf, dimOf, map)
+module Hccb.Rect exposing (Rect(..), rect, pointOf, dimOf, map)
 
-import Hccb.Point exposing (Point(Point))
-import Hccb.Dim exposing (Dim(Dim))
+import Hccb.Point exposing (Point(..))
+import Hccb.Dim exposing (Dim(..))
 
 
 type Rect
@@ -13,9 +13,9 @@ rect x y w h =
     Rect (Point x y) (Dim w h)
 
 
-fromRect : Rect -> ( Float, Float, Float, Float )
-fromRect (Rect (Point x y) (Dim w h)) =
-    ( x, y, w, h )
+-- fromRect : Rect -> ( Float, Float, Float, Float )
+-- fromRect (Rect (Point x y) (Dim w h)) =
+--     ( x, y, w, h )
 
 
 pointOf : Rect -> Point

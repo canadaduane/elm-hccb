@@ -70,7 +70,7 @@ drawTriangles spec (Point corner_x corner_y) data =
         drawTriangleAt i j =
             let
                 triangleDir =
-                    case j % 2 of
+                    case modBy j 2 of
                         0 ->
                             TriangleUp
 
@@ -130,10 +130,10 @@ drawFrame outside inside =
 drawRect : String -> Rect -> Svg msg
 drawRect fill_ (Rect (Point x_ y_) (Dim w_ h_)) =
     rect
-        [ toString x_ |> x
-        , toString y_ |> y
-        , toString w_ |> width
-        , toString h_ |> height
+        [ Debug.toString x_ |> x
+        , Debug.toString y_ |> y
+        , Debug.toString w_ |> width
+        , Debug.toString h_ |> height
         , fill fill_
         ]
         []

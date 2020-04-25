@@ -12,7 +12,7 @@ In a future project, I intend to "stream" data through an on-screen HCCB--bypass
 
 ## Examples
 
-See [Simple](https://canadaduane.github.io/elm-hccb/examples/simple/index.html) and [Streaming](https://canadaduane.github.io/elm-hccb/examples/streaming/index.html) examples online.
+See [Simple](https://canadaduane.github.io/elm-hccb/examples/Simple/index.html) and [Streaming](https://canadaduane.github.io/elm-hccb/examples/streaming/index.html) examples online.
 
 ## Status
 
@@ -25,13 +25,17 @@ I discovered HCCB, among other formats, through [Specifications For Popular 2D B
 
 ## Getting started
 
-You need to have [Elm](http://elm-lang.org/) 0.18 installed on your machine.
+Install [Elm](https://github.com/elm/compiler/blob/master/installers/linux/README.md) in your $PATH.
 
-Compile the samples in this project with:
+Compile Hccb
 
-    cd examples; make
+    elm make src/Hccb.elm
 
-Then view it:
+Compile an example
+
+    elm make examples/Simple/Simple.elm
+
+Then view the example in http://localhost:8000/examples/Simple/index.html with:
 
     elm reactor
 

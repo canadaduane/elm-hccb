@@ -42,7 +42,7 @@ drawTriangle direction fill_ stripHeight triangleDim corner =
             [ d pathStr
             , fill fill_
             , stroke white
-            , strokeWidth (toString strokeWidth_)
+            , strokeWidth (Debug.toString strokeWidth_)
             ]
             []
 
